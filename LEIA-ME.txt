@@ -1,0 +1,4 @@
+MvDeveloper: site estático pronto para publicação em hospedagem estática.
+Abra index.html para visualizar. Para publicar, use GitHub Pages, Netlify ou Render Static Site.
+O formulário gera uma mensagem copiável, mas NÃO envia dados automaticamente. Para receber solicitações é necessário integrar um serviço de formulários ou backend e configurar seu contato.
+Faixas de orçamento são informadas pelo cliente e não representam preços definidos pela empresa.
