@@ -2,3 +2,11 @@
 
 /* Integração WhatsApp: mantém o visual azul-neon */
 .form-help{font-size:12px;color:#a5c8dd;line-height:1.65;margin:12px 0 0}.whatsapp-action{display:inline-block;margin:6px 14px 8px 0;font-size:13px;padding:12px 17px}.footer-contact{display:inline-block;color:#53cfff;font-weight:700;margin-left:12px;transition:color .2s,text-shadow .2s}.footer-contact:hover{color:#a2e7ff;text-shadow:0 0 15px #33c3ff}
+
+/* Navegação por abas: cada seção funciona como uma página */
+.site-page[hidden]{display:none!important}
+header nav a{transition:color .2s,text-shadow .2s,border-color .2s}
+header nav a[aria-current="page"]{color:#50cfff!important;text-shadow:0 0 18px #1aaaffaa;border-bottom:2px solid #29baff;padding-bottom:5px}
+.site-page:not([hidden]){animation:pageReveal .3s ease-out}
+@keyframes pageReveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.site-page:not([hidden]){animation:none}}

@@ -8,7 +8,7 @@ document.querySelectorAll('article').forEach(card => {
   });
   card.querySelector('button').addEventListener('click', () => {
     document.getElementById('tipo').value = card.dataset.service;
-    document.getElementById('orcamento').scrollIntoView({ behavior: 'smooth' });
+    navigateTo('orcamento');
   });
 });
 
@@ -49,3 +49,33 @@ document.getElementById('copiar').addEventListener('click', async () => {
     document.getElementById('status').textContent = 'Pressione Ctrl+C para copiar.';
   }
 });
+
+// Abas independentes: início, serviços e orçamentos.
+const PAGE_IDS = ['inicio', 'servicos', 'orcamento'];
+function navigateTo(page) {
+  const target = PAGE_IDS.includes(page) ? page : 'inicio';
+  PAGE_IDS.forEach(id => {
+    const section = document.getElementById(id);
+    section.hidden = id !== target;
+  });
+  document.querySelectorAll('header nav a').forEach(link => {
+    if (link.getAttribute('href') === '#' + target) {
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+  if (location.hash !== '#' + target) history.pushState(null, '', '#' + target);
+  window.scrollTo({top: 0, behavior: 'instant'});
+}
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  const target = link.getAttribute('href').slice(1);
+  if (!PAGE_IDS.includes(target)) return;
+  link.addEventListener('click', event => {
+    event.preventDefault();
+    navigateTo(target);
+  });
+});
+window.addEventListener('popstate', () => navigateTo(location.hash.slice(1)));
+window.addEventListener('hashchange', () => navigateTo(location.hash.slice(1)));
+navigateTo(location.hash.slice(1));
