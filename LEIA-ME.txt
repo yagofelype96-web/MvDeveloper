@@ -1,4 +1,14 @@
-MvDeveloper: site estático pronto para publicação em hospedagem estática.
-Abra index.html para visualizar. Para publicar, use GitHub Pages, Netlify ou Render Static Site.
-O formulário gera uma mensagem copiável, mas NÃO envia dados automaticamente. Para receber solicitações é necessário integrar um serviço de formulários ou backend e configurar seu contato.
-Faixas de orçamento são informadas pelo cliente e não representam preços definidos pela empresa.
+MvDeveloper — Site estático azul neon com pedido de orçamento pelo WhatsApp.
+
+O que foi configurado:
+- O cliente preenche o formulário e clica em "Enviar orçamento pelo WhatsApp".
+- Uma nova aba abre uma conversa com a mensagem pré-preenchida para o número comercial informado.
+- O cliente precisa tocar em Enviar no WhatsApp para concluir.
+- Se a abertura automática for bloqueada, o botão "Abrir WhatsApp" aparece com o link pronto.
+- No rodapé também há um atalho para o WhatsApp.
+
+Não é necessária API nem variável de ambiente. Nenhum pedido é salvo em banco de dados ou enviado automaticamente sem confirmação do cliente.
+
+Para publicar, envie os quatro arquivos (index.html, style.css, script.js e este LEIA-ME) para a raiz do seu repositório e use Render Static Site com Publish Directory ".".
+
+ATENÇÃO: Como o número foi configurado no código de um site público, visitantes poderão vê-lo e entrar em contato. Para trocar, edite WHATSAPP_NUMBER no script.js e o link do rodapé em index.html.
